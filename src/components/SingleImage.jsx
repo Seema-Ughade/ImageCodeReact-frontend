@@ -20,7 +20,7 @@ const SingleImage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/');
+        const response = await axios.get('https://imagecodereact-backennd.onrender.com/api/');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -52,12 +52,12 @@ const SingleImage = () => {
 
     try {
       const response = editingUserId 
-        ? await axios.put(`http://127.0.0.1:5000/api/${editingUserId}`, data, {
+        ? await axios.put(`https://imagecodereact-backennd.onrender.com/api/${editingUserId}`, data, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
           }) 
-        : await axios.post('http://127.0.0.1:5000/api/', data, {
+        : await axios.post('https://imagecodereact-backennd.onrender.com/api/', data, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
@@ -101,7 +101,7 @@ const SingleImage = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/api/${userId}`);
+      await axios.delete(`https://imagecodereact-backennd.onrender.com/api/${userId}`);
       setUsers(users.filter((user) => user._id !== userId)); // Remove deleted user from state
     } catch (error) {
       console.error('Error deleting user:', error);
