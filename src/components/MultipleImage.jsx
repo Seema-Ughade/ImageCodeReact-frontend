@@ -22,7 +22,7 @@ const MultipleImage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/mutipleimageroutes/new');
+        const response = await axios.get('http://127.0.0.1:5000/api/MultipleImage/new');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -75,12 +75,12 @@ const MultipleImage = () => {
 
     try {
       const response = editingUserId 
-        ? await axios.put(`http://127.0.0.1:5000/api/mutipleimageroutes${editingUserId}`, data, {
+        ? await axios.put(`http://127.0.0.1:5000/api/MultipleImage${editingUserId}`, data, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
           }) 
-        : await axios.post('http://127.0.0.1:5000/api/mutipleimageroutes', data, {
+        : await axios.post('http://127.0.0.1:5000/api/MultipleImage', data, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
@@ -126,7 +126,7 @@ const MultipleImage = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/api/mutipleimageroutes/${userId}`);
+      await axios.delete(`http://127.0.0.1:5000/api/MultipleImage/${userId}`);
       setUsers(users.filter((user) => user._id !== userId)); // Remove deleted user from state
     } catch (error) {
       console.error('Error deleting user:', error);
